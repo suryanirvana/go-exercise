@@ -28,15 +28,9 @@ func readInput() (string) {
 
 func processText(text string) (map[string]int) {
 	textSlices := strings.Fields(text)
-	textMap := make(map[string]int)
+	textMap := map[string]int{}
 	for _, slice := range textSlices {
-		if _, ok := textMap[slice]; ok {
-			count := textMap[slice]
-			count++
-			textMap[slice] = count
-		} else {
-			textMap[slice] = 1
-		}
+		textMap[slice]++
 	}
 
 	return textMap
